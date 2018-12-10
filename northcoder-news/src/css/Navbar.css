@@ -1,0 +1,8 @@
+.nav {
+  justify-content: right;
+  text-align: right;
+}
+
+.nav a {
+  margin: 0px 10px;
+}

@@ -1,13 +1,14 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template: 1fr 1fr 10fr 1fr / 1fr 1fr 1fr;
+  grid-template: 1fr 1fr 11fr 1fr / 1fr 1fr 1fr;
   grid-template-areas:
     "header userInd userInd"
     "header nav nav"
     "main main sidebar"
     "footer footer footer";
   height: 100vh;
+  font-family: Raleway;
 }
 
 .header {
@@ -24,24 +25,24 @@
 
 .nav {
   grid-area: nav;
-  background: yellow;
+  background: rgba(255, 255, 0, 0.2);
+  border: 2px solid rgb(255, 255, 0);
 }
 
 .main {
   grid-area: main;
-  background: red;
+  background: rgba(255, 0, 0, 0.2);
+  border: 2px solid red;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background: blue;
+  background: rgba(0, 0, 255, 0.2);
+  border: 2px solid rgb(0, 0, 255);
 }
 
 .footer {
   grid-area: footer;
-  background: purple;
-}
-
-h1 {
-  color: red;
+  background: rgba(128, 0, 128, 0.2);
+  border: 2px solid purple;
 }

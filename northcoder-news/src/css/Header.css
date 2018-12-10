@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  padding: 10px 0px;
+}
+
+.header h1 {
+  margin: 0px 20px;
+  letter-spacing: 10px;
+  line-height: 30px;
+}
