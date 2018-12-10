@@ -1,7 +1,11 @@
 import React from "react";
 
 const UserIndicator = () => {
-  return <p>User Indicator here</p>;
+  return (
+    <div className="userInd">
+      <p>User Indicator here</p>
+    </div>
+  );
 };
 
 export default UserIndicator;

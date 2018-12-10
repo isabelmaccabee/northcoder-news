@@ -1,3 +1,47 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template: 1fr 1fr 10fr 1fr / 1fr 1fr 1fr;
+  grid-template-areas:
+    "header userInd userInd"
+    "header nav nav"
+    "main main sidebar"
+    "footer footer footer";
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  border: 2px solid rgb(173, 216, 230);
+  background: rgba(173, 216, 230, 0.2);
+}
+
+.userInd {
+  grid-area: userInd;
+  background: rgba(144, 238, 144, 0.2);
+  border: 2px solid rgb(144, 238, 144);
+}
+
+.nav {
+  grid-area: nav;
+  background: yellow;
+}
+
+.main {
+  grid-area: main;
+  background: red;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: blue;
+}
+
+.footer {
+  grid-area: footer;
+  background: purple;
+}
+
+h1 {
+  color: red;
 }

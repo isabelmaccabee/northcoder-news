@@ -4,6 +4,9 @@ import Header from "./components/Header";
 import UserIndicator from "./components/UserIndicator";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Sidebar from "./components/Sidebar";
+import { Router } from "@reach/router";
 
 class App extends Component {
   render() {
@@ -12,6 +15,12 @@ class App extends Component {
         <Header />
         <UserIndicator />
         <Navbar />
+        <Router className="main">
+          <Home path="/" />
+        </Router>
+        <Router className="sidebar">
+          <Sidebar path="/" />
+        </Router>
         <Footer />
       </div>
     );
