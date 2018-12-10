@@ -23,13 +23,10 @@ class App extends Component {
         <UserIndicator />
         <Navbar topics={topics} />
         <Router className="main">
-          <Articles path="/" />
+          <Home path="/" />
           <Articles path="/:topic" />
         </Router>
-        <Router className="sidebar">
-          <Sidebar path="/" />
-          <Sidebar path="/:topic" />
-        </Router>
+        <Sidebar />
         <Footer />
       </div>
     );

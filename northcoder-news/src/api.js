@@ -11,6 +11,5 @@ export const getTopics = async () => {
 
 export const getArticles = async () => {
   const { data } = await axios.get(`${BASE_URL}/articles`);
-  console.log(data.articles);
   return data.articles;
 };

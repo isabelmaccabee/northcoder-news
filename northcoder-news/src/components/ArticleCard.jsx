@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../css/ArticleCard.css";
 
 const ArticleCard = ({ articleInfo }) => {
   const { title, author, topic, votes } = articleInfo;
   return (
-    <div>
+    <div className="articleCardDiv">
       <h3>{title}</h3>
       <p>Author: {author}</p>
       <p>Topic: {topic}</p>
