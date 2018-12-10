@@ -13,3 +13,7 @@ export const getArticles = async () => {
   const { data } = await axios.get(`${BASE_URL}/articles`);
   return data.articles;
 };
+
+export const getTopTen = async () => {
+  console.log("hi");
+};

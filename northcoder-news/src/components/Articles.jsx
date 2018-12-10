@@ -4,10 +4,13 @@ import ArticleCard from "./ArticleCard";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [],
+    isLoading: true
   };
+
   render() {
-    const { articles } = this.state;
+    const { articles, isLoading } = this.state;
+    if (isLoading) return <p>...</p>;
     return (
       <div>
         <ul>

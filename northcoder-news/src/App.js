@@ -12,16 +12,24 @@ import Articles from "./components/Articles";
 
 class App extends Component {
   state = {
-    topics: []
+    topics: [],
+    isLoading: true
   };
 
   render() {
-    const { topics } = this.state;
+    const { topics, isLoading } = this.state;
     return (
       <div className="App">
         <Header />
         <UserIndicator />
-        <Navbar topics={topics} />
+        {isLoading ? (
+          <div className="nav">
+            <p>...</p>
+          </div>
+        ) : (
+          <Navbar topics={topics} />
+        )}
+        {/* <Navbar topics={topics} /> */}
         <Router className="main">
           <Home path="/" />
           <Articles path="/:topic" />
