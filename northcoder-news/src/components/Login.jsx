@@ -1,16 +1,18 @@
 import React, { Component } from "react";
+import * as api from "../api";
 
 class Login extends Component {
   state = {
-    userInput: ""
+    userInput: "",
+    userNotExist: false
   };
 
   render() {
-    const { userInput } = this.state;
+    const { userInput, userNotExist } = this.state;
     return (
-      <>
+      <div className="loginForm">
         <p>Welcome</p>
-        <form onSubmit={this.handleSubmit} className="loginForm">
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="userInput">Username: </label>
           <input
             type="text"
@@ -20,7 +22,10 @@ class Login extends Component {
           />
           <button>Login</button>
         </form>
-      </>
+        {userNotExist && (
+          <p className="incorrectUser">Username doesn't exist!</p>
+        )}
+      </div>
     );
   }
 
@@ -32,7 +37,12 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.setUser(this.state.userInput);
+    api
+      .getUserDetails(this.state.userInput)
+      .then(response => {
+        this.props.setUser(response);
+      })
+      .catch(err => this.setState({ userNotExist: true }));
   };
 }
 

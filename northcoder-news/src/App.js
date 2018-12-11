@@ -47,9 +47,7 @@ class App extends Component {
   };
 
   setUser = loginCredentials => {
-    this.setState({ user: loginCredentials }, () => {
-      console.log(this.state);
-    });
+    this.setState({ user: loginCredentials });
   };
 }
 

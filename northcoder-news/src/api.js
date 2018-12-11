@@ -33,3 +33,9 @@ export const getComments = async article_id => {
   );
   return data.comments;
 };
+
+export const getUserDetails = async username => {
+  const { data } = await axios.get(`${BASE_URL}/users/${username}`);
+  const response = data.user ? data.user : data.message;
+  return response;
+};
