@@ -5,7 +5,6 @@ import "../css/Navbar.css";
 import * as utils from "../utils/index";
 
 const Navbar = ({ topics }) => {
-  console.log(topics);
   return (
     <div className="nav">
       <Link to="/">Home</Link>

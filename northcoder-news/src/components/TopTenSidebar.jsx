@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import { Link } from "@reach/router";
 
 class TopTenSidebar extends Component {
   state = {
@@ -8,9 +9,23 @@ class TopTenSidebar extends Component {
   };
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, top10 } = this.state;
     if (isLoading) return <p>...</p>;
-    return <p>Hello</p>;
+    return (
+      <div>
+        <h2>Top 10 Popular Articles</h2>
+        <ol>
+          {top10.map(({ title, article_id, votes, topic }) => {
+            return (
+              <li key={article_id}>
+                <Link to={`/${topic}/${article_id}`}>{title}</Link>, votes:{" "}
+                {votes}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    );
   }
 
   componentDidMount() {
@@ -18,7 +33,9 @@ class TopTenSidebar extends Component {
   }
 
   fetchTopTen = () => {
-    api.getTopTen().then(ranking => console.log(ranking));
+    api.getTopTen().then(ranking => {
+      return this.setState({ top10: ranking, isLoading: false });
+    });
   };
 }
 

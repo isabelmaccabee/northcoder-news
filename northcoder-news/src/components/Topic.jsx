@@ -1,12 +1,12 @@
 import React from "react";
 import Articles from "./Articles";
 
-const Home = () => {
+const Topic = ({ topic }) => {
   return (
     <div>
-      <Articles topic={false} />
+      <Articles topic={topic} />
     </div>
   );
 };
 
-export default Home;
+export default Topic;

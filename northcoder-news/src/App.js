@@ -8,7 +8,8 @@ import Home from "./components/Home";
 import Sidebar from "./components/Sidebar";
 import { Router } from "@reach/router";
 import * as api from "./api";
-import Articles from "./components/Articles";
+import Topic from "./components/Topic";
+import Article from "./components/Article";
 
 class App extends Component {
   state = {
@@ -29,10 +30,10 @@ class App extends Component {
         ) : (
           <Navbar topics={topics} />
         )}
-        {/* <Navbar topics={topics} /> */}
         <Router className="main">
           <Home path="/" />
-          <Articles path="/:topic" />
+          <Topic path="/:topic" />
+          <Article path="/:topics/:article_id" />
         </Router>
         <Sidebar />
         <Footer />
@@ -45,7 +46,7 @@ class App extends Component {
   }
 
   fetchTopics = () => {
-    api.getTopics().then(topics => this.setState({ topics }));
+    api.getTopics().then(topics => this.setState({ topics, isLoading: false }));
   };
 }
 

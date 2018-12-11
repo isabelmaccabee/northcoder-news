@@ -27,8 +27,16 @@ class Articles extends Component {
     this.fetchArticles();
   }
 
-  fetchArticles = () => {
-    api.getArticles().then(articles => this.setState({ articles }));
+  componentDidUpdate(prevProps) {
+    if (prevProps.topic !== this.props.topic) {
+      this.fetchArticles(this.props.topic);
+    }
+  }
+
+  fetchArticles = topic => {
+    api
+      .getArticles(topic)
+      .then(articles => this.setState({ articles, isLoading: false }));
   };
 }
 
