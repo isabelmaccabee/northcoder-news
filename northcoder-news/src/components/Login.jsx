@@ -8,9 +8,10 @@ class Login extends Component {
   render() {
     const { userInput } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="userInput">Please write in here</label>
+      <>
+        <p>Welcome</p>
+        <form onSubmit={this.handleSubmit} className="loginForm">
+          <label htmlFor="userInput">Username: </label>
           <input
             type="text"
             id="userInput"
@@ -19,7 +20,7 @@ class Login extends Component {
           />
           <button>Login</button>
         </form>
-      </div>
+      </>
     );
   }
 

@@ -22,7 +22,7 @@ class App extends Component {
       <Auth user={user} setUser={this.setUser}>
         <div className="App">
           <Header />
-          <UserIndicator />
+          <UserIndicator user={user} />
           {isLoading ? (
             <div className="nav">
               <p>...</p>

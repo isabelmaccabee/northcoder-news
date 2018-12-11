@@ -1,9 +1,9 @@
 import React from "react";
 
-const UserIndicator = () => {
+const UserIndicator = ({ user }) => {
   return (
     <div className="userInd">
-      <p>User Indicator here</p>
+      <p>You are signed in as {user}</p>
     </div>
   );
 };
