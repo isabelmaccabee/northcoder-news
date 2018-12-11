@@ -8,14 +8,10 @@ class CommentsSidebar extends Component {
     const { currentComments } = this.state;
     return (
       <div>
-        <p>{this.props.article_id}</p>
-        <ul>
-          {currentComments.map(
-            ({ comment_id, author, body, created_at, votes }) => {
-              return <li>{/* <CommentCard /> */}</li>;
-            }
-          )}
-        </ul>
+        <h2>Comments</h2>
+        {currentComments.map(comment => {
+          return <CommentCard comment={comment} />;
+        })}
       </div>
     );
   }
