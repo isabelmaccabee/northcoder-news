@@ -24,7 +24,7 @@ class Articles extends Component {
     );
   }
   componentDidMount() {
-    this.fetchArticles();
+    this.fetchArticles(this.props.topic);
   }
 
   componentDidUpdate(prevProps) {

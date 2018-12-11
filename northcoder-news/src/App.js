@@ -33,7 +33,7 @@ class App extends Component {
         <Router className="main">
           <Home path="/" />
           <Topic path="/:topic" />
-          <Article path="/:topics/:article_id" />
+          <Article path="/:topic/:article_id" />
         </Router>
         <Sidebar />
         <Footer />
