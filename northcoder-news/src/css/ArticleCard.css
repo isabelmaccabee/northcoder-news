@@ -1,6 +1,12 @@
 .articleCardDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border-bottom: 1px solid grey;
   text-align: left;
+  list-style: none;
+}
+
+.articleInfo {
+  width: 500px;
+  padding: 0px 20px;
 }

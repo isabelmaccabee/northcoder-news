@@ -4,14 +4,7 @@
   align-items: right;
 }
 
-a {
+.nav a {
   margin: 0px 10px;
-  color: rgb(89, 89, 89);
-  text-decoration: none;
   text-align: right;
-}
-
-a:hover {
-  font-weight: 1000;
-  color: black;
 }

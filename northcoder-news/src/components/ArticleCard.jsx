@@ -7,12 +7,16 @@ const ArticleCard = ({ articleInfo }) => {
   const { title, author, topic, votes, article_id } = articleInfo;
   return (
     <div className="articleCardDiv">
-      <h3>
-        <Link to={`/${topic}/${article_id}`}>{title}</Link>
-      </h3>
-      <p>Author: {author}</p>
-      <p>Topic: {topic}</p>
-      <p>Votes: {votes}</p>
+      <div className="articleInfo">
+        <h3>
+          <Link to={`/${topic}/${article_id}`}>{title}</Link>
+        </h3>
+        <p>Author: {author}</p>
+        <p>Topic: {topic}</p>
+      </div>
+      <div className="votes">
+        <p>Votes: {votes}</p>
+      </div>
     </div>
   );
 };
