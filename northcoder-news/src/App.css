@@ -11,7 +11,7 @@
   font-family: Raleway;
 }
 
-.header {
+.App .header {
   grid-area: header;
   border: 2px solid rgb(173, 216, 230);
   background: rgba(173, 216, 230, 0.2);
@@ -33,6 +33,8 @@
   grid-area: main;
   background: rgba(255, 0, 0, 0.2);
   border: 2px solid red;
+  /* height: 100vh;
+  overflow: scroll; */
 }
 
 .sidebar {
