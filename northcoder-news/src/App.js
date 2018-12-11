@@ -4,12 +4,10 @@ import Header from "./components/Header";
 import UserIndicator from "./components/UserIndicator";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
 import Sidebar from "./components/Sidebar";
-import { Router } from "@reach/router";
 import * as api from "./api";
-import Topic from "./components/Topic";
-import Article from "./components/Article";
+
+import Main from "./components/Main";
 
 class App extends Component {
   state = {
@@ -30,11 +28,7 @@ class App extends Component {
         ) : (
           <Navbar topics={topics} />
         )}
-        <Router className="main">
-          <Home path="/" />
-          <Topic path="/:topic" />
-          <Article path="/:topic/:article_id" />
-        </Router>
+        <Main />
         <Sidebar />
         <Footer />
       </div>
