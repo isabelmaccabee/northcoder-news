@@ -1,25 +1,45 @@
 import React, { Component } from "react";
+import * as api from "../api";
+import "../css/VoteSection.css";
 
 class VoteSection extends Component {
-  state = {};
+  state = {
+    voteChange: 0
+  };
 
   render() {
+    const { voteChange } = this.state;
+    const { votes } = this.props;
     return (
-      <>
-        <button id="upVote" onClick={this.handleClick} value="1">
-          vote
+      <div className="voteSection">
+        <button
+          onClick={this.handleClick}
+          value="1"
+          className={voteChange === 1 ? "pressed" : "unpressed"}
+        >
+          vote UP
         </button>
-        <p>Votes:</p>
-        <p>{this.props.component_id}</p>
-        <button id="downVote" onClick={this.handleClick} value="-1">
-          vote
+        <p>Votes: {votes + voteChange}</p>
+        <button
+          onClick={this.handleClick}
+          value="-1"
+          className={voteChange === -1 ? "pressed" : "unpressed"}
+        >
+          vote DOWN
         </button>
-      </>
+      </div>
     );
   }
 
   handleClick = event => {
-    console.log(+event.target.value);
+    const voteNum =
+      +event.target.value === this.state.voteChange
+        ? +event.target.value * -1
+        : +event.target.value;
+    api.updateVotes(this.props.component_id, voteNum).catch(console.log);
+    this.setState({
+      voteChange: +event.target.value === voteNum ? voteNum : 0
+    });
   };
 }
 

@@ -1,0 +1,8 @@
+.pressed {
+  background: lightgray;
+}
+
+.voteSection button {
+  border-radius: 5px;
+  width: 80%;
+}

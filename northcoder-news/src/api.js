@@ -40,4 +40,8 @@ export const getUserDetails = async username => {
   return response;
 };
 
-export const sendVotes = async (id, votes) => {};
+export const updateVotes = async (id, voteNum) => {
+  await axios.patch(`${BASE_URL}/articles/${id}`, {
+    inc_votes: voteNum
+  });
+};

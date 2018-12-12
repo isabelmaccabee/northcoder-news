@@ -37,14 +37,15 @@ body {
   grid-area: main;
   background: rgba(255, 0, 0, 0.2);
   border: 2px solid red;
-  /* height: 100vh;
-  overflow: scroll; */
+  /* height: 100vh; */
+  overflow: scroll;
 }
 
 .sidebar {
   grid-area: sidebar;
   background: rgba(0, 0, 255, 0.2);
   border: 2px solid rgb(0, 0, 255);
+  overflow: scroll;
 }
 
 .footer {
@@ -61,4 +62,12 @@ a {
 a:hover {
   font-weight: 1000;
   color: black;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.main::-webkit-scrollbar {
+  width: 0.5em;
 }
