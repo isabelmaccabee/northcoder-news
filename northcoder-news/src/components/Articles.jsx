@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import * as api from "../api";
 import ArticleCard from "./ArticleCard";
 import "../css/Articles.css";
+import QueryButtons from "./QueryButtons";
 
 class Articles extends Component {
   state = {
     articles: [],
+    queries: { sort_by: "" },
     isLoading: true
   };
 
@@ -14,6 +16,7 @@ class Articles extends Component {
     if (isLoading) return <p>...</p>;
     return (
       <div>
+        <QueryButtons addQueries={this.addQueries} />
         <ul>
           {articles.map(article => (
             <li key={article.article_id} className="article">
@@ -38,6 +41,10 @@ class Articles extends Component {
     api
       .getArticles(topic)
       .then(articles => this.setState({ articles, isLoading: false }));
+  };
+
+  addQueries = queries => {
+    this.setState({ queries });
   };
 }
 
