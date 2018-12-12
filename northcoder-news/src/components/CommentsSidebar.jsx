@@ -3,6 +3,11 @@ import * as api from "../api";
 import CommentCard from "./CommentCard";
 import CommentAdder from "./CommentAdder";
 
+// need to 'push' (but not really bc dont want to modify) to currentComments
+// this will render automatically
+// so push comment with 'fake' comment obj (i.e. guess id, set votes to 0)
+// next time it'll be the real object
+
 class CommentsSidebar extends Component {
   state = { currentComments: [], isLoading: true, newComment: "" };
   render() {
