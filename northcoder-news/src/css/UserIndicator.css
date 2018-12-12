@@ -1,0 +1,12 @@
+.userAvatar {
+  width: 8%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.userInd {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: right;
+}
