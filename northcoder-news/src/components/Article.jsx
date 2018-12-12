@@ -34,7 +34,7 @@ class Article extends Component {
           <span>{comment_count}</span>
         </h3>
         <p>{body}</p>
-        <VoteSection votes={votes} component_id={article_id} type="article" />
+        <VoteSection votes={votes} article_id={article_id} />
       </div>
     );
   }

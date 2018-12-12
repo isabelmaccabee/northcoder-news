@@ -16,7 +16,7 @@ const ArticleCard = ({ articleInfo }) => {
         <p>Topic: {topic}</p>
       </div>
       <div className="votes">
-        <VoteSection component_id={article_id} votes={votes} />
+        <VoteSection article_id={article_id} votes={votes} type="articles" />
       </div>
     </div>
   );

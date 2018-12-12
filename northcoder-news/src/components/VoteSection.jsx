@@ -41,7 +41,10 @@ class VoteSection extends Component {
       +event.target.value === this.state.voteChange
         ? +event.target.value * -1
         : +event.target.value;
-    api.updateVotes(this.props.component_id, voteNum).catch(console.log);
+    api
+      .updateVotes(this.props.article_id, voteNum, this.props.comment_id)
+      .then()
+      .catch(console.log);
     this.setState({
       voteChange: +event.target.value === voteNum ? voteNum : 0
     });

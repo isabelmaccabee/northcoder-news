@@ -1,6 +1,6 @@
-// import React from "react";
-// import Login from "./Login";
-// import Header from "./Header";
+import React from "react";
+import Login from "./Login";
+import Header from "./Header";
 import "../css/LoginPage.css";
 
 const Auth = ({ user, children, setUser }) => {

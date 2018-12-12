@@ -12,7 +12,7 @@ import Auth from "./components/Auth";
 class App extends Component {
   state = {
     topics: [],
-    user: null,
+    user: { user_id: 1, username: "tickle122" },
     isLoading: true
   };
 
@@ -31,7 +31,7 @@ class App extends Component {
             <Navbar topics={topics} />
           )}
           <Main />
-          <Sidebar />
+          <Sidebar user={user} />
           <Footer />
         </div>
       </Auth>

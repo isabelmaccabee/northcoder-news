@@ -3,12 +3,12 @@ import React from "react";
 import TopTenSidebar from "./TopTenSidebar";
 import CommentsSidebar from "./CommentsSidebar";
 
-const Sidebar = () => {
+const Sidebar = ({ user }) => {
   return (
     <Router className="sidebar">
       <TopTenSidebar path="/" />
       <TopTenSidebar path="/:topic" />
-      <CommentsSidebar path="/:topic/:article_id" />
+      <CommentsSidebar path="/:topic/:article_id" user={user} />
     </Router>
   );
 };
