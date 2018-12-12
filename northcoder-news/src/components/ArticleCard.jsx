@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../css/ArticleCard.css";
 import { Link } from "@reach/router";
+import VoteSection from "./VoteSection";
 
 const ArticleCard = ({ articleInfo }) => {
   const { title, author, topic, votes, article_id } = articleInfo;
@@ -15,7 +16,7 @@ const ArticleCard = ({ articleInfo }) => {
         <p>Topic: {topic}</p>
       </div>
       <div className="votes">
-        <p>Votes: {votes}</p>
+        <VoteSection component_id={article_id} />
       </div>
     </div>
   );

@@ -39,3 +39,5 @@ export const getUserDetails = async username => {
   const response = data.user ? data.user : data.message;
   return response;
 };
+
+export const sendVotes = async (id, votes) => {};
