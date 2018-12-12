@@ -9,9 +9,13 @@ class VoteSection extends Component {
 
   render() {
     const { voteChange } = this.state;
-    const { votes } = this.props;
+    const { votes, type } = this.props;
     return (
-      <div className="voteSection">
+      <div
+        className={
+          type === "article" ? "voteSection articleVotes" : "voteSection"
+        }
+      >
         <button
           onClick={this.handleClick}
           value="1"

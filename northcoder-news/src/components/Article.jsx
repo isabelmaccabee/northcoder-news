@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import VoteSection from "./VoteSection";
+import "../css/Article.css";
 
 class Article extends Component {
   state = {
@@ -23,7 +24,7 @@ class Article extends Component {
     } = this.state;
     if (isLoading) return <p>...</p>;
     return (
-      <div>
+      <div className="articlePage">
         <h2>{title}</h2>
         <h3>
           <span>{author}</span>
@@ -33,7 +34,7 @@ class Article extends Component {
           <span>{comment_count}</span>
         </h3>
         <p>{body}</p>
-        <VoteSection votes={votes} component_id={article_id} />
+        <VoteSection votes={votes} component_id={article_id} type="article" />
       </div>
     );
   }

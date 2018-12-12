@@ -14,3 +14,8 @@
 .up {
   background: rgb(171, 205, 171);
 }
+
+.articleVotes {
+  display: flex;
+  flex-direction: row;
+}
