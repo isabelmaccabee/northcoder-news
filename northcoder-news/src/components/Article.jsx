@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import VoteSection from "./VoteSection";
 
 class Article extends Component {
   state = {
@@ -13,9 +14,10 @@ class Article extends Component {
         votes,
         author,
         created_at,
-        topic,
+        // topic,
         body,
-        comment_count
+        comment_count,
+        article_id
       },
       isLoading
     } = this.state;
@@ -27,8 +29,11 @@ class Article extends Component {
           <span>{author}</span>
           <br />
           <span>{created_at}</span>
+          <br />
+          <span>{comment_count}</span>
         </h3>
         <p>{body}</p>
+        <VoteSection votes={votes} component_id={article_id} />
       </div>
     );
   }

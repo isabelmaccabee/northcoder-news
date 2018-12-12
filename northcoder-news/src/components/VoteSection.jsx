@@ -15,15 +15,16 @@ class VoteSection extends Component {
         <button
           onClick={this.handleClick}
           value="1"
-          className={voteChange === 1 ? "pressed" : "unpressed"}
+          className={voteChange === 1 ? "pressed up" : "unpressed"}
         >
-          vote UP
+          vote
+          <br /> UP
         </button>
         <p>Votes: {votes + voteChange}</p>
         <button
           onClick={this.handleClick}
           value="-1"
-          className={voteChange === -1 ? "pressed" : "unpressed"}
+          className={voteChange === -1 ? "pressed down" : "unpressed"}
         >
           vote DOWN
         </button>
