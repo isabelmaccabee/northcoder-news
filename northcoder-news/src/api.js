@@ -9,11 +9,12 @@ export const getTopics = async () => {
   return data.topics;
 };
 
-export const getArticles = async topic => {
+export const getArticles = async (topic, sort_by) => {
   const URL = topic
     ? `${BASE_URL}/topics/${topic}/articles`
     : `${BASE_URL}/articles`;
-  const { data } = await axios.get(`${URL}`);
+  const queryURL = sort_by ? `${URL}?sort_by=${sort_by}` : URL;
+  const { data } = await axios.get(queryURL);
   return data.articles;
 };
 

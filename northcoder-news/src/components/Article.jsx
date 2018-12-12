@@ -31,7 +31,7 @@ class Article extends Component {
           <br />
           <span>{created_at}</span>
           <br />
-          <span>{comment_count}</span>
+          <span>Comment count: {comment_count}</span>
         </h3>
         <p>{body}</p>
         <VoteSection votes={votes} article_id={article_id} />

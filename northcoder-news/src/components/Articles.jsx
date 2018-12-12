@@ -7,7 +7,6 @@ import QueryButtons from "./QueryButtons";
 class Articles extends Component {
   state = {
     articles: [],
-    queries: { sort_by: "" },
     isLoading: true
   };
 
@@ -16,7 +15,11 @@ class Articles extends Component {
     if (isLoading) return <p>...</p>;
     return (
       <div>
-        <QueryButtons addQueries={this.addQueries} />
+        <QueryButtons
+          addQueries={this.addQueries}
+          fetchArticles={this.fetchArticles}
+          topic={this.props.topic}
+        />
         <ul>
           {articles.map(article => (
             <li key={article.article_id} className="article">
@@ -31,20 +34,16 @@ class Articles extends Component {
     this.fetchArticles(this.props.topic);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles(this.props.topic);
     }
   }
 
-  fetchArticles = topic => {
+  fetchArticles = (topic, sort_by) => {
     api
-      .getArticles(topic)
+      .getArticles(topic, sort_by)
       .then(articles => this.setState({ articles, isLoading: false }));
-  };
-
-  addQueries = queries => {
-    this.setState({ queries });
   };
 }
 
