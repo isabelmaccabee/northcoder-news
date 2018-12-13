@@ -9,7 +9,7 @@ import CommentAdder from "./CommentAdder";
 // next time it'll be the real object
 
 class CommentsSidebar extends Component {
-  state = { currentComments: [], isLoading: true, newComment: "" };
+  state = { currentComments: [], isLoading: true };
   render() {
     const { currentComments } = this.state;
     const { article_id, user } = this.props;
@@ -20,6 +20,7 @@ class CommentsSidebar extends Component {
           user={user}
           addComment={this.addComment}
           article_id={article_id}
+          showPostFailure={this.showPostFailure}
         />
         {currentComments.map(comment => {
           return (
@@ -36,20 +37,35 @@ class CommentsSidebar extends Component {
     this.fetchComments();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.newComment !== this.state.newComment) {
-      this.fetchComments();
-    }
-  }
-
   fetchComments = () => {
     api.getComments(this.props.article_id).then(comments => {
       this.setState({ currentComments: comments, isLoading: false });
     });
   };
 
-  addComment = newComment => {
-    this.setState({ newComment });
+  addComment = (newComment, username) => {
+    const postCommentObj = {
+      body: newComment,
+      author: username,
+      created_at: `${Date.now()}`,
+      votes: 0,
+      comment_id: `${Date.now()}`,
+      failedToPost: false
+    };
+    this.setState(prevState => ({
+      currentComments: [postCommentObj, ...prevState.currentComments],
+      isLoading: false
+    }));
+  };
+
+  showPostFailure = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      currentComments: [
+        { ...prevState.currentComments[0], failedToPost: true },
+        ...prevState.currentComments.slice(1)
+      ]
+    }));
   };
 }
 

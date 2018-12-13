@@ -32,11 +32,13 @@ class CommentAdder extends Component {
     event.preventDefault();
     const {
       article_id,
-      user: { user_id }
+      user: { user_id, username },
+      showPostFailure
     } = this.props;
-    api.postComment(article_id, this.state.comment, user_id).then(() => {
-      this.props.addComment(this.state.comment);
+    api.postComment(article_id, this.state.comment, user_id).catch(err => {
+      showPostFailure();
     });
+    this.props.addComment(this.state.comment, username);
   };
 }
 
