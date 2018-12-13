@@ -3,6 +3,7 @@ import * as api from "../api";
 import ArticleCard from "./ArticleCard";
 import "../css/Articles.css";
 import QueryButtons from "./QueryButtons";
+import throttle from "lodash.throttle";
 
 class Articles extends Component {
   state = {
@@ -14,7 +15,7 @@ class Articles extends Component {
     const { articles, isLoading } = this.state;
     if (isLoading) return <p>...</p>;
     return (
-      <div>
+      <div onScroll={throttle(this.handleScroll, 2000)}>
         <QueryButtons
           addQueries={this.addQueries}
           fetchArticles={this.fetchArticles}
@@ -44,6 +45,13 @@ class Articles extends Component {
     api
       .getArticles(topic, sort_by, sort_ascending)
       .then(articles => this.setState({ articles, isLoading: false }));
+  };
+
+  handleScroll = event => {
+    // const bottom =
+    //   event.target.scrollHeight - event.target.scrollTop ===
+    //   event.target.clientHeight;
+    // if (bottom) console.log("hi");
   };
 }
 
