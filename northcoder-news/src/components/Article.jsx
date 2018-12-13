@@ -7,8 +7,7 @@ import DeleteButton from "./DeleteButton";
 class Article extends Component {
   state = {
     currentArticle: {},
-    isLoading: true,
-    deleted: false
+    isLoading: true
   };
   render() {
     const {
@@ -22,13 +21,12 @@ class Article extends Component {
         comment_count,
         article_id
       },
-      isLoading,
-      deleted
+      isLoading
     } = this.state;
     const { username } = this.props.user;
     if (isLoading) return <p>...</p>;
     return (
-      <div className={deleted ? "articlePage hidden" : "articlePage"}>
+      <div className="articlePage">
         <h2>{title}</h2>
         <h3>
           <span>{author}</span>

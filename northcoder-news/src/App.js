@@ -33,7 +33,7 @@ class App extends Component {
             ) : (
               <Navbar topics={topics} />
             )}
-            <Main user={user} />
+            <Main user={user} topics={topics} />
             <Sidebar user={user} />
             <Footer />
           </div>
