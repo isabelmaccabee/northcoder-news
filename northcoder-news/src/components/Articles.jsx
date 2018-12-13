@@ -40,9 +40,9 @@ class Articles extends Component {
     }
   }
 
-  fetchArticles = (topic, sort_by) => {
+  fetchArticles = (topic, sort_by, sort_ascending) => {
     api
-      .getArticles(topic, sort_by)
+      .getArticles(topic, sort_by, sort_ascending)
       .then(articles => this.setState({ articles, isLoading: false }));
   };
 }

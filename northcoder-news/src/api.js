@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as utils from "./utils/index";
 
 const BASE_URL = "https://isabel-nc-knews.herokuapp.com/api";
 
@@ -9,12 +10,14 @@ export const getTopics = async () => {
   return data.topics;
 };
 
-export const getArticles = async (topic, sort_by) => {
-  const URL = topic
+export const getArticles = async (topic, sort_by, sort_ascending) => {
+  let URL = topic
     ? `${BASE_URL}/topics/${topic}/articles`
     : `${BASE_URL}/articles`;
-  const queryURL = sort_by ? `${URL}?sort_by=${sort_by}` : URL;
-  const { data } = await axios.get(queryURL);
+  URL = sort_by ? `${URL}?sort_by=${sort_by}` : URL;
+  URL = sort_ascending ? `${URL}?sort_ascending=${sort_ascending}` : URL;
+  const withoutQs = utils.changeQmarkToAmp(URL);
+  const { data } = await axios.get(withoutQs);
   return data.articles;
 };
 
