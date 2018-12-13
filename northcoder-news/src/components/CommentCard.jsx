@@ -1,8 +1,9 @@
 import React from "react";
 import VoteSection from "./VoteSection";
 import "../css/CommentCard.css";
+import DeleteButton from "./DeleteButton";
 
-const CommentCard = ({ comment, article_id }) => {
+const CommentCard = ({ comment, article_id, user }) => {
   const { comment_id, author, body, votes, created_at, failedToPost } = comment;
   return (
     <div
@@ -17,6 +18,7 @@ const CommentCard = ({ comment, article_id }) => {
         comment_id={comment_id}
         article_id={article_id}
       />
+      <DeleteButton author={author} currentUser={user} />
     </div>
   );
 };

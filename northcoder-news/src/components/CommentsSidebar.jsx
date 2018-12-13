@@ -20,7 +20,11 @@ class CommentsSidebar extends Component {
         {currentComments.map(comment => {
           return (
             <div key={comment.comment_id}>
-              <CommentCard comment={comment} article_id={article_id} />
+              <CommentCard
+                comment={comment}
+                article_id={article_id}
+                user={user}
+              />
             </div>
           );
         })}

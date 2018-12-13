@@ -19,6 +19,7 @@ class Login extends Component {
             id="userInput"
             onChange={this.handleChange}
             value={userInput}
+            autoFocus={true}
           />
           <button>Login</button>
         </form>
