@@ -3,7 +3,7 @@ import VoteSection from "./VoteSection";
 import "../css/CommentCard.css";
 import DeleteButton from "./DeleteButton";
 
-const CommentCard = ({ comment, article_id, user }) => {
+const CommentCard = ({ comment, article_id, user, optDeleteComment }) => {
   const { comment_id, author, body, votes, created_at, failedToPost } = comment;
   return (
     <div
@@ -18,7 +18,12 @@ const CommentCard = ({ comment, article_id, user }) => {
         comment_id={comment_id}
         article_id={article_id}
       />
-      <DeleteButton author={author} currentUser={user} />
+      {user.username === author && (
+        <DeleteButton
+          comment_id={comment_id}
+          optDeleteComment={optDeleteComment}
+        />
+      )}
     </div>
   );
 };

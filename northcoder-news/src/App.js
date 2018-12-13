@@ -8,6 +8,8 @@ import Sidebar from "./components/Sidebar";
 import * as api from "./api";
 import Main from "./components/Main";
 import Auth from "./components/Auth";
+import { Provider as AlertProvider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
 
 class App extends Component {
   state = {
@@ -19,22 +21,24 @@ class App extends Component {
   render() {
     const { topics, isLoading, user } = this.state;
     return (
-      <Auth user={user} setUser={this.setUser}>
-        <div className="App">
-          <Header />
-          <UserIndicator user={user} />
-          {isLoading ? (
-            <div className="nav">
-              <p>...</p>
-            </div>
-          ) : (
-            <Navbar topics={topics} />
-          )}
-          <Main />
-          <Sidebar user={user} />
-          <Footer />
-        </div>
-      </Auth>
+      <AlertProvider template={AlertTemplate}>
+        <Auth user={user} setUser={this.setUser}>
+          <div className="App">
+            <Header />
+            <UserIndicator user={user} />
+            {isLoading ? (
+              <div className="nav">
+                <p>...</p>
+              </div>
+            ) : (
+              <Navbar topics={topics} />
+            )}
+            <Main />
+            <Sidebar user={user} />
+            <Footer />
+          </div>
+        </Auth>
+      </AlertProvider>
     );
   }
 

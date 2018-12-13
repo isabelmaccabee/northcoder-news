@@ -71,3 +71,7 @@ a:hover {
 .main::-webkit-scrollbar {
   width: 0.5em;
 }
+
+.deleteButton {
+  background: lightcoral;
+}
