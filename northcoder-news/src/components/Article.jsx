@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import * as api from "../api";
 import VoteSection from "./VoteSection";
 import "../css/Article.css";
+import DeleteButton from "./DeleteButton";
 
 class Article extends Component {
   state = {
     currentArticle: {},
-    isLoading: true
+    isLoading: true,
+    deleted: false
   };
   render() {
     const {
@@ -20,11 +22,13 @@ class Article extends Component {
         comment_count,
         article_id
       },
-      isLoading
+      isLoading,
+      deleted
     } = this.state;
+    const { username } = this.props.user;
     if (isLoading) return <p>...</p>;
     return (
-      <div className="articlePage">
+      <div className={deleted ? "articlePage hidden" : "articlePage"}>
         <h2>{title}</h2>
         <h3>
           <span>{author}</span>
@@ -35,6 +39,9 @@ class Article extends Component {
         </h3>
         <p>{body}</p>
         <VoteSection votes={votes} article_id={article_id} />
+        {username === author && (
+          <DeleteButton optDeleteFunc={this.optDeleteArticle} />
+        )}
       </div>
     );
   }
@@ -47,6 +54,18 @@ class Article extends Component {
     api.getOneArticle(this.props.article_id).then(article => {
       this.setState({ currentArticle: article, isLoading: false });
     });
+  };
+
+  optDeleteArticle = () => {
+    api
+      .deleteElement(this.props.article_id)
+      .then(response => {
+        console.log("yes deleted yay");
+      })
+      .catch(err => {
+        console.log("oops an errr");
+      });
+    this.setState({ deleted: true });
   };
 }
 

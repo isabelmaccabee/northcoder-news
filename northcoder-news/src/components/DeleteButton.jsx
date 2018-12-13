@@ -1,13 +1,12 @@
 import React from "react";
 import "../App.css";
-import { withAlert } from "react-alert";
 
-const DeleteButton = ({ comment_id, optDeleteComment }) => {
+const DeleteButton = ({ optDeleteFunc, comment_id }) => {
   return (
     <>
       <button
         className="deleteButton"
-        onClick={() => optDeleteComment(comment_id)}
+        onClick={() => optDeleteFunc(comment_id)}
       >
         Delete
       </button>

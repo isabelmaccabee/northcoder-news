@@ -60,17 +60,20 @@ class CommentsSidebar extends Component {
   };
 
   showPostFailure = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      currentComments: [
-        { ...prevState.currentComments[0], failedToPost: true },
-        ...prevState.currentComments.slice(1)
-      ]
-    }));
+    this.setState(prevState => {
+      this.props.alert.error("Oh no! Unsucessful post, refresh and try again?");
+      return {
+        ...prevState,
+        currentComments: [
+          { ...prevState.currentComments[0], failedToPost: true },
+          ...prevState.currentComments.slice(1)
+        ]
+      };
+    });
   };
 
   optDeleteComment = comment_id => {
-    api.deleteComment(this.props.article_id, comment_id).catch(err => {
+    api.deleteElement(this.props.article_id, comment_id).catch(err => {
       this.props.alert.error(
         "Oh no! Delete wasn't successful, refresh and try again maybe?"
       );

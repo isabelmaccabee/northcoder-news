@@ -14,7 +14,7 @@ import AlertTemplate from "react-alert-template-basic";
 class App extends Component {
   state = {
     topics: [],
-    user: { user_id: 1, username: "tickle122" },
+    user: { user_id: 4, username: "cooljmessy" },
     isLoading: true
   };
 
@@ -33,7 +33,7 @@ class App extends Component {
             ) : (
               <Navbar topics={topics} />
             )}
-            <Main />
+            <Main user={user} />
             <Sidebar user={user} />
             <Footer />
           </div>

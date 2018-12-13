@@ -21,7 +21,7 @@ const CommentCard = ({ comment, article_id, user, optDeleteComment }) => {
       {user.username === author && (
         <DeleteButton
           comment_id={comment_id}
-          optDeleteComment={optDeleteComment}
+          optDeleteFunc={optDeleteComment}
         />
       )}
     </div>

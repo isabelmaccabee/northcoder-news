@@ -61,8 +61,9 @@ export const postComment = async (article_id, body, user_id) => {
   return data.comment;
 };
 
-export const deleteComment = async (article_id, comment_id) => {
-  const URL = `${BASE_URL}/articles/${article_id}/comments/${comment_id}`;
-  const { data } = await axios.delete(URL);
-  return data;
+export const deleteElement = async (article_id, comment_id) => {
+  const URL = comment_id
+    ? `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+    : `${BASE_URL}/articles/${article_id}`;
+  await axios.delete(URL);
 };
