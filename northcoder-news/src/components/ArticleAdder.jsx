@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as utils from "../utils";
 import * as api from "../api";
 import { navigate } from "@reach/router";
+import { withAlert } from "react-alert";
 
 class ArticleAdder extends Component {
   state = {
@@ -65,10 +66,12 @@ class ArticleAdder extends Component {
         navigate(`/articles/${article.article_id}`);
       })
       .catch(err => {
-        console.log(err);
+        this.props.alert.error(
+          "Oh no! Unsuccessful post, refresh and try again?"
+        );
       });
     this.setState({ submitPressed: true });
   };
 }
 
-export default ArticleAdder;
+export default withAlert(ArticleAdder);

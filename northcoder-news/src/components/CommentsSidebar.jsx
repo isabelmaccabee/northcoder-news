@@ -39,9 +39,12 @@ class CommentsSidebar extends Component {
   }
 
   fetchComments = () => {
-    api.getComments(this.props.article_id).then(comments => {
-      this.setState({ currentComments: comments, isLoading: false });
-    });
+    api
+      .getComments(this.props.article_id)
+      .then(comments => {
+        this.setState({ currentComments: comments, isLoading: false });
+      })
+      .catch(err => {});
   };
 
   addComment = (newComment, username) => {
