@@ -3,6 +3,8 @@ import * as api from "../api";
 import VoteSection from "./VoteSection";
 import "../css/Article.css";
 import DeleteButton from "./DeleteButton";
+import { navigate } from "@reach/router";
+import { withAlert } from "react-alert";
 
 class Article extends Component {
   state = {
@@ -57,14 +59,17 @@ class Article extends Component {
   optDeleteArticle = () => {
     api
       .deleteElement(this.props.article_id)
-      .then(response => {
-        console.log("yes deleted yay");
+      .then(() => {
+        this.props.alert.success("Successful delete!");
+        navigate("/");
       })
       .catch(err => {
-        console.log("oops an errr");
+        this.props.alert.error(
+          "Unsuccessful delete, refresh and try again maybe?"
+        );
       });
     this.setState({ deleted: true });
   };
 }
 
-export default Article;
+export default withAlert(Article);
