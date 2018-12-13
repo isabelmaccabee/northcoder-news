@@ -6,7 +6,7 @@ import * as utils from "../utils/index";
 
 const Navbar = ({ topics }) => {
   return (
-    <div className="nav">
+    <div className="nav headerBar">
       <Link to="/">Home</Link>
       {topics.map(({ slug }) => {
         return (

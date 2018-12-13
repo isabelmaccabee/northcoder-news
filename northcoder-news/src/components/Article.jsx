@@ -29,11 +29,11 @@ class Article extends Component {
     if (isLoading) return <p>...</p>;
     return (
       <div className="articlePage">
-        <h2>{title}</h2>
+        <h2 className="articleTitle">{title}</h2>
         <h3>
-          <span>{author}</span>
+          <span>Author: {author}</span>
           <br />
-          <span>{created_at}</span>
+          <span>Creation date: {created_at}</span>
           <br />
           <span>Comment count: {comment_count}</span>
         </h3>

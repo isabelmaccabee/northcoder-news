@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Footer </p>
+      <p>{`${new Date()}`}</p>
     </div>
   );
 };

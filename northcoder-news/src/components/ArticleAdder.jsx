@@ -3,6 +3,7 @@ import * as utils from "../utils";
 import * as api from "../api";
 import { navigate } from "@reach/router";
 import { withAlert } from "react-alert";
+import "../css/ArticleAdder.css";
 
 class ArticleAdder extends Component {
   state = {
@@ -15,8 +16,9 @@ class ArticleAdder extends Component {
   render() {
     const { user, topics } = this.props;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="articleAdder">
+        <h2>Submit an article</h2>
+        <form onSubmit={this.handleSubmit} className="articleAdder">
           <label htmlFor="titleInput">Title</label>
           <input
             type="text"

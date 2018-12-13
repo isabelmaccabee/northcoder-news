@@ -1,0 +1,14 @@
+.queryButtonsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.sortingOrderDiv {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 0px 20px;
+}

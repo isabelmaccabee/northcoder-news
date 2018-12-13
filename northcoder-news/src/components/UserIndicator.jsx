@@ -4,7 +4,7 @@ import "../css/UserIndicator.css";
 const UserIndicator = ({ user }) => {
   const { username, avatar_url } = user;
   return (
-    <div className="userInd">
+    <div className="userInd headerBar">
       <p>You are signed in as {username}</p>
       <img
         src={`${avatar_url}`}

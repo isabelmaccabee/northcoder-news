@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../css/QueryButtons.css";
 
 class QueryButtons extends Component {
   state = {
@@ -8,41 +9,47 @@ class QueryButtons extends Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <label htmlFor="sortByQuery">Sort by:</label>
-          <select
-            id="sortByQuery"
-            onChange={this.handleChange}
-            className="sort_by"
-          >
-            <option value="created_at">Date</option>
-            <option value="title">Title</option>
-            <option value="author">Author</option>
-            <option value="votes">Votes</option>
-            <option value="comments">Comments</option>
-          </select>
-          <label htmlFor="sort_ascTrue">Ascending</label>
-          <input
-            type="radio"
-            value="true"
-            name="sort_asc"
-            id="sort_ascTrue"
-            onChange={this.handleChange}
-            className="sort_ascending"
-          />
-          <label htmlFor="sort_ascFalse">Descending</label>
-          <input
-            type="radio"
-            value="false"
-            name="sort_asc"
-            id="sort_ascFalse"
-            onChange={this.handleChange}
-            className="sort_ascending"
-          />
-          <button onClick={this.handleClick}>Give me articles!</button>
-        </form>
-      </div>
+      // <div className="queryButtonsDiv">
+      <form className="queryButtonsDiv">
+        <label htmlFor="sortByQuery">Sort by:</label>
+        <select
+          id="sortByQuery"
+          onChange={this.handleChange}
+          className="sort_by"
+        >
+          <option value="created_at">Date</option>
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="votes">Votes</option>
+          <option value="comments">Comments</option>
+        </select>
+        <div className="sortingOrderDiv">
+          <div>
+            <label htmlFor="sort_ascTrue">Ascending</label>
+            <input
+              type="radio"
+              value="true"
+              name="sort_asc"
+              id="sort_ascTrue"
+              onChange={this.handleChange}
+              className="sort_ascending"
+            />
+          </div>
+          <div>
+            <label htmlFor="sort_ascFalse">Descending</label>
+            <input
+              type="radio"
+              value="false"
+              name="sort_asc"
+              id="sort_ascFalse"
+              onChange={this.handleChange}
+              className="sort_ascending"
+            />
+          </div>
+        </div>
+        <button onClick={this.handleClick}>Give me articles!</button>
+      </form>
+      // </div>
     );
   }
 

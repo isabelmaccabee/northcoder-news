@@ -5,8 +5,16 @@
 }
 
 .userInd {
-  display: flex;
-  flex-direction: row;
-  align-items: right;
+  display: inline;
+  /* flex-direction: row;  */
   justify-content: right;
+  text-align: right;
+  max-height: 200px;
+  font-size: 1em;
+}
+
+.userInd p {
+  line-height: 7px;
+  display: inline;
+  letter-spacing: 1px;
 }

@@ -17,41 +17,47 @@ body {
 
 .App .header {
   grid-area: header;
-  border: 2px solid rgb(173, 216, 230);
-  background: rgba(173, 216, 230, 0.2);
+  /* background: rgba(173, 216, 230, 0.2); */
 }
 
 .userInd {
   grid-area: userInd;
-  background: rgba(144, 238, 144, 0.2);
-  border: 2px solid rgb(144, 238, 144);
+  /* background: rgba(144, 238, 144, 0.2); */
+  /* border: 2px solid rgb(144, 238, 144); */
 }
 
 .nav {
   grid-area: nav;
-  background: rgba(255, 255, 0, 0.2);
-  border: 2px solid rgb(255, 255, 0);
+  /* background: rgba(255, 255, 0, 0.2); */
 }
 
 .main {
   grid-area: main;
-  background: rgba(255, 0, 0, 0.2);
-  border: 2px solid red;
+  /* background: rgba(255, 0, 0, 0.2); */
   /* height: 100vh; */
   overflow: scroll;
+  border-top: 5px solid rgb(209, 80, 91);
+  margin: 5px 0px;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background: rgba(0, 0, 255, 0.2);
-  border: 2px solid rgb(0, 0, 255);
+  /* background: rgba(0, 0, 255, 0.2); */
   overflow: scroll;
+  /* border-left: 2px solid rgb(255, 96, 110);
+    top: 25%;
+  bottom: 25%; */
+  display: flex;
+  flex-direction: row;
+  border-top: 5px solid rgb(209, 80, 91);
+  margin: 5px 0px;
 }
 
 .footer {
   grid-area: footer;
-  background: rgba(128, 0, 128, 0.2);
-  border: 2px solid purple;
+  /* background: rgba(128, 0, 128, 0.2); */
+  background: rgb(209, 80, 91);
+  color: white;
 }
 
 a {
@@ -74,4 +80,12 @@ a:hover {
 
 .deleteButton {
   background: lightcoral;
+}
+
+.headerBar {
+  /* background: rgb(255, 96, 110); */
+  background: rgb(209, 80, 91);
+  border-bottom: rgb(209, 80, 91);
+  color: white;
+  /* min-height: 80px; */
 }
