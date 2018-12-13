@@ -76,11 +76,16 @@ class CommentsSidebar extends Component {
   };
 
   optDeleteComment = comment_id => {
-    api.deleteElement(this.props.article_id, comment_id).catch(err => {
-      this.props.alert.error(
-        "Oh no! Delete wasn't successful, refresh and try again maybe?"
-      );
-    });
+    api
+      .deleteElement(this.props.article_id, comment_id)
+      .then(() => {
+        // this.props.alert.success("Successful comment post!");
+      })
+      .catch(err => {
+        this.props.alert.error(
+          "Oh no! Delete wasn't successful, refresh and try again maybe?"
+        );
+      });
     this.setState(prevState => {
       const filteredComments = prevState.currentComments.filter(
         comment => comment.comment_id !== comment_id

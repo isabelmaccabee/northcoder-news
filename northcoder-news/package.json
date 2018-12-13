@@ -5,6 +5,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "axios": "^0.18.0",
+    "lodash.throttle": "^4.1.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-alert": "^4.0.4",
