@@ -1,0 +1,13 @@
+.userProfile td {
+  text-align: left;
+}
+/* 
+.infoTable {
+
+} */
+
+.userProfile {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 300px;
+}

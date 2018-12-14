@@ -6,6 +6,8 @@ import ArticleAdder from "./ArticleAdder";
 import throttle from "lodash.throttle";
 import React, { Component } from "react";
 import PageNotFound from "./PageNotFound";
+import Profile from "./Profile";
+import TopicAdder from "./TopicAdder";
 
 class Main extends Component {
   state = {
@@ -21,6 +23,8 @@ class Main extends Component {
         <Article path="/:topic/:article_id" user={user} />
         <ArticleAdder path="/submit-article" user={user} topics={topics} />
         <PageNotFound path="/404" />
+        <Profile path="/profile" user={user} />
+        <TopicAdder path="/submit-topic" user={user} />
       </Router>
     );
   }
