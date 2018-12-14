@@ -44,9 +44,9 @@ class Articles extends Component {
         this.fetchArticles(this.props.topic);
       });
     }
-    // if (prevProps.page !== this.props.page) {
-    //   this.fetchArticles(this.props.topic, null, null, this.props.page);
-    // }
+    if (prevProps.page !== this.props.page) {
+      this.fetchArticles(this.props.topic, null, null, this.props.page);
+    }
   }
 
   fetchArticles = (topic, sort_by, sort_ascending, page) => {
