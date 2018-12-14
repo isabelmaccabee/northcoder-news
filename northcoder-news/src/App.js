@@ -14,7 +14,7 @@ import AlertTemplate from "react-alert-template-basic";
 class App extends Component {
   state = {
     topics: [],
-    user: { user_id: 1, username: "tickle122", name: "Tom Tickle" },
+    user: null,
     isLoading: true
   };
 

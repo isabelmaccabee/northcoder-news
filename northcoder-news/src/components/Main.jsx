@@ -34,7 +34,6 @@ class Main extends Component {
     const bottom =
       target.scrollHeight - target.scrollTop === target.clientHeight;
     if (bottom) {
-      console.log("at the bottom");
       this.setState(prevState => ({ page: prevState.page + 1 }));
     }
   }, 1000);

@@ -9,6 +9,5 @@ export const changeQmarkToAmp = url => {
     if (char === "?" && index !== firstQ) return "&";
     return char;
   });
-  console.log(onlyOneQ.join(""));
   return onlyOneQ.join("");
 };

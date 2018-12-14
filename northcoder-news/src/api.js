@@ -11,7 +11,6 @@ export const getTopics = async () => {
 };
 
 export const getArticles = async (topic, sort_by, sort_ascending, page = 1) => {
-  // const p = page ? page : 1;
   let URL = topic
     ? `${BASE_URL}/topics/${topic}/articles?p=${page}`
     : `${BASE_URL}/articles?p=${page}`;
@@ -77,9 +76,8 @@ export const postArticle = async (user_id, title, body, topic) => {
 };
 
 export const postTopic = async (slug, description) => {
-  console.log("hi");
   const newTopic = {
-    slug,
+    slug: slug.toLowerCase(),
     description
   };
   const { data } = await axios.post(`${BASE_URL}/topics`, newTopic);
