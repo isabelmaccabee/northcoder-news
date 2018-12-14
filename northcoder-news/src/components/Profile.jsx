@@ -18,7 +18,7 @@ const Profile = ({ user }) => {
           </tr>
         </tbody>
       </table>
-      <p>Thanks for being a valued user of this site!</p>
+      <p>Thanks for being a valuable user of this site!</p>
     </div>
   );
 };

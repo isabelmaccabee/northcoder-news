@@ -3,7 +3,7 @@ import * as api from "../api";
 import ArticleCard from "./ArticleCard";
 import "../css/Articles.css";
 import QueryButtons from "./QueryButtons";
-import throttle from "lodash.throttle";
+import { navigate } from "@reach/router";
 
 class Articles extends Component {
   state = {
@@ -15,7 +15,7 @@ class Articles extends Component {
     const { articles, isLoading } = this.state;
     if (isLoading) return <p>...</p>;
     return (
-      <div onScroll={throttle(this.handleScroll, 2000)}>
+      <div className="articlesDiv">
         <QueryButtons
           addQueries={this.addQueries}
           fetchArticles={this.fetchArticles}
@@ -39,19 +39,16 @@ class Articles extends Component {
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles(this.props.topic);
     }
+    // if (prevProps.page !== this.props.page) {}
   }
 
   fetchArticles = (topic, sort_by, sort_ascending) => {
     api
       .getArticles(topic, sort_by, sort_ascending)
-      .then(articles => this.setState({ articles, isLoading: false }));
-  };
-
-  handleScroll = event => {
-    // const bottom =
-    //   event.target.scrollHeight - event.target.scrollTop ===
-    //   event.target.clientHeight;
-    // if (bottom) console.log("hi");
+      .then(articles => this.setState({ articles, isLoading: false }))
+      .catch(err => {
+        navigate("/404", { state: { errMsg: err.response.data.message } });
+      });
   };
 }
 

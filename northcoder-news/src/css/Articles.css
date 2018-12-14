@@ -6,3 +6,8 @@ ul {
   padding: 0px;
   margin: 0px 50px;
 }
+
+.articlesDiv {
+  overflow: scroll;
+  height: 100%;
+}

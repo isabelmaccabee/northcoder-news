@@ -9,5 +9,8 @@
 .userProfile {
   display: flex;
   flex-direction: column;
-  margin: 0px 300px;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: auto;
+  margin-right: auto; */
 }

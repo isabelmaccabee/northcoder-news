@@ -16,10 +16,11 @@ class Main extends Component {
 
   render() {
     const { user, topics } = this.props;
+    const { page } = this.state;
     return (
-      <Router className="main" onScroll={throttle(this.handleScroll, 2000)}>
-        <Home path="/" />
-        <Topic path="/:topic" />
+      <Router className="main" onScroll={e => this.handleScroll(e.target)}>
+        <Home path="/" page={page} />
+        <Topic path="/:topic" page={page} />
         <Article path="/:topic/:article_id" user={user} />
         <ArticleAdder path="/submit-article" user={user} topics={topics} />
         <PageNotFound path="/404" />
@@ -29,21 +30,13 @@ class Main extends Component {
     );
   }
 
-  handleScroll = event => {
-    // if (
-    //   window.innerHeight + window.scrollY >=
-    //   document.body.offsetHeight - 500
-    // ) {
-    //   console.log("will do another api request");
-    // }
-    // event.persist();
-    //the below things work but gives error ebcause scroll is 'null' sometimes??
-    // console.log(event.target.clientHeight);
-    // const bottom = this.scrollHeight - this.scrollTop === this.clientHeight;
-    // if (bottom) {
-    //   console.log("at the bottom");
-    // }
-  };
+  handleScroll = throttle(target => {
+    const bottom =
+      target.scrollHeight - target.scrollTop === target.clientHeight;
+    if (bottom) {
+      console.log("at the bottom");
+    }
+  }, 1000);
 }
 
 export default Main;
