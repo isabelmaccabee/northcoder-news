@@ -39,13 +39,20 @@ class Articles extends Component {
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles(this.props.topic);
     }
-    // if (prevProps.page !== this.props.page) {}
+    if (prevProps.page !== this.props.page) {
+      this.fetchArticles(this.props.topic, null, null, this.props.page);
+    }
   }
 
-  fetchArticles = (topic, sort_by, sort_ascending) => {
+  fetchArticles = (topic, sort_by, sort_ascending, page) => {
     api
-      .getArticles(topic, sort_by, sort_ascending)
-      .then(articles => this.setState({ articles, isLoading: false }))
+      .getArticles(topic, sort_by, sort_ascending, page)
+      .then(articles =>
+        this.setState(prevState => ({
+          articles: [...prevState.articles, ...articles],
+          isLoading: false
+        }))
+      )
       .catch(err => {
         navigate("/404", { state: { errMsg: err.response.data.message } });
       });

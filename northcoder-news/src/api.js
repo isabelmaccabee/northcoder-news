@@ -10,10 +10,11 @@ export const getTopics = async () => {
   return data.topics;
 };
 
-export const getArticles = async (topic, sort_by, sort_ascending) => {
+export const getArticles = async (topic, sort_by, sort_ascending, page = 1) => {
+  // const p = page ? page : 1;
   let URL = topic
-    ? `${BASE_URL}/topics/${topic}/articles`
-    : `${BASE_URL}/articles`;
+    ? `${BASE_URL}/topics/${topic}/articles?p=${page}`
+    : `${BASE_URL}/articles?p=${page}`;
   URL = sort_by ? `${URL}?sort_by=${sort_by}` : URL;
   URL = sort_ascending ? `${URL}?sort_ascending=${sort_ascending}` : URL;
   const withoutQs = utils.changeQmarkToAmp(URL);
