@@ -15,7 +15,9 @@ const Navbar = ({ topics }) => {
           </Link>
         );
       })}
-      <Link to="/submit-article">Submit Article</Link>
+      <Link to="/submit-article" className="submitArticleNav">
+        Submit Article
+      </Link>
     </div>
   );
 };

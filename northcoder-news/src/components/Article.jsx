@@ -51,9 +51,18 @@ class Article extends Component {
   }
 
   fetchOneArticle = () => {
-    api.getOneArticle(this.props.article_id).then(article => {
-      this.setState({ currentArticle: article, isLoading: false });
-    });
+    api
+      .getOneArticle(this.props.article_id)
+      .then(article => {
+        this.setState({ currentArticle: article, isLoading: false });
+      })
+      .catch(err => {
+        console.dir(err.response.data.message);
+        navigate("/404", {
+          state: { errMsg: err.response.data.message },
+          replace: true
+        });
+      });
   };
 
   optDeleteArticle = () => {
