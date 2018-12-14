@@ -8,11 +8,12 @@ import { navigate } from "@reach/router";
 class Articles extends Component {
   state = {
     articles: [],
-    isLoading: true
+    isLoading: true,
+    endOfPage: false
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, endOfPage } = this.state;
     if (isLoading) return <p>...</p>;
     return (
       <div className="articlesDiv">
@@ -28,6 +29,7 @@ class Articles extends Component {
             </li>
           ))}
         </ul>
+        {endOfPage && <p>end of page</p>}
       </div>
     );
   }
@@ -54,7 +56,14 @@ class Articles extends Component {
         }))
       )
       .catch(err => {
-        navigate("/404", { state: { errMsg: err.response.data.message } });
+        if (page > 1) {
+          this.setState({ endOfPage: true });
+        } else {
+          navigate("/404", {
+            state: { errMsg: err.response.data.message },
+            replace: true
+          });
+        }
       });
   };
 }
