@@ -21,10 +21,11 @@ class Articles extends Component {
           addQueries={this.addQueries}
           fetchArticles={this.fetchArticles}
           topic={this.props.topic}
+          page={this.props.page}
         />
         <ul>
-          {articles.map(article => (
-            <li key={article.article_id} className="article">
+          {articles.map((article, index) => (
+            <li key={`${article.article_id}${index}`} className="article">
               <ArticleCard articleInfo={article} />
             </li>
           ))}
@@ -43,19 +44,26 @@ class Articles extends Component {
         this.fetchArticles(this.props.topic);
       });
     }
-    if (prevProps.page !== this.props.page) {
-      this.fetchArticles(this.props.topic, null, null, this.props.page);
-    }
+    // if (prevProps.page !== this.props.page) {
+    //   this.fetchArticles(this.props.topic, null, null, this.props.page);
+    // }
   }
 
   fetchArticles = (topic, sort_by, sort_ascending, page) => {
+    console.log(topic, sort_by, sort_ascending, page);
     api
       .getArticles(topic, sort_by, sort_ascending, page)
       .then(articles =>
-        this.setState(prevState => ({
-          articles: [...prevState.articles, ...articles],
-          isLoading: false
-        }))
+        this.setState(prevState => {
+          if (sort_by || sort_ascending) {
+            return { articles, isLoading: false };
+          } else {
+            return {
+              articles: [...prevState.articles, ...articles],
+              isLoading: false
+            };
+          }
+        })
       )
       .catch(err => {
         if (page > 1) {

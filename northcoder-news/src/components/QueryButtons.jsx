@@ -56,7 +56,12 @@ class QueryButtons extends Component {
   handleClick = event => {
     event.preventDefault();
     const { sort_by, sort_ascending } = this.state;
-    this.props.fetchArticles(this.props.topic, sort_by, sort_ascending);
+    this.props.fetchArticles(
+      this.props.topic,
+      sort_by,
+      sort_ascending,
+      this.props.page
+    );
   };
 
   handleChange = event => {
