@@ -4,9 +4,7 @@ import * as utils from "./utils/index";
 const BASE_URL = "https://northcoder-news-api.herokuapp.com/api";
 
 export const getTopics = async () => {
-  const { data } = await axios.get(
-    `https://isabel-nc-knews.herokuapp.com/api/topics/`
-  );
+  const { data } = await axios.get(`${BASE_URL}/topics`);
   return data.topics;
 };
 
