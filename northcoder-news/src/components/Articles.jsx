@@ -8,6 +8,7 @@ import { navigate } from "@reach/router";
 class Articles extends Component {
   state = {
     articles: [],
+    searchQueries: { sort_by: null, sort_ascending: null },
     isLoading: true,
     endOfPage: false
   };
@@ -22,6 +23,8 @@ class Articles extends Component {
           fetchArticles={this.fetchArticles}
           topic={this.props.topic}
           page={this.props.page}
+          updateSearchQueries={this.updateSearchQueries}
+          resetPage={this.props.resetPage}
         />
         <ul>
           {articles.map((article, index) => {
@@ -37,27 +40,42 @@ class Articles extends Component {
     );
   }
   componentDidMount() {
-    this.fetchArticles(this.props.topic);
+    this.fetchArticles();
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic) {
       this.setState({ articles: [] }, () => {
-        this.fetchArticles(this.props.topic);
+        this.fetchArticles();
       });
     }
     if (prevProps.page !== this.props.page) {
-      this.fetchArticles(this.props.topic, null, null, this.props.page);
+      this.fetchArticles();
+    }
+    if (prevState.searchQueries !== this.state.searchQueries) {
+      if (this.props.page === 1) {
+        this.setState({ articles: [] }, () => {
+          this.fetchArticles();
+        });
+      } else {
+        this.props.resetPage();
+      }
     }
   }
 
-  fetchArticles = (topic, sort_by, sort_ascending, page) => {
-    console.log(topic, sort_by, sort_ascending, page);
+  fetchArticles = () => {
+    const { topic, page } = this.props;
+    const { searchQueries } = this.state;
     api
-      .getArticles(topic, sort_by, sort_ascending, page)
+      .getArticles(
+        topic,
+        searchQueries.sort_by,
+        searchQueries.sort_ascending,
+        page
+      )
       .then(articles =>
         this.setState(prevState => {
-          if (sort_by || sort_ascending) {
+          if (page === 1) {
             return { articles, isLoading: false };
           } else {
             return {
@@ -77,6 +95,10 @@ class Articles extends Component {
           });
         }
       });
+  };
+
+  updateSearchQueries = (sort_by, sort_ascending) => {
+    this.setState({ searchQueries: { sort_by, sort_ascending } });
   };
 }
 

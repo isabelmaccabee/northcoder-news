@@ -19,8 +19,13 @@ class Main extends Component {
     const { page } = this.state;
     return (
       <Router className="main" onScroll={e => this.handleScroll(e.target)}>
-        <Home path="/" page={page} />
-        <Topic path="/:topic" page={page} topics={topics} />
+        <Home path="/" page={page} resetPage={this.resetPage} />
+        <Topic
+          path="/:topic"
+          page={page}
+          topics={topics}
+          resetPage={this.resetPage}
+        />
         <Article path="/:topic/:article_id" user={user} />
         <ArticleAdder path="/submit-article" user={user} topics={topics} />
         <PageNotFound path="/404" />
@@ -37,6 +42,10 @@ class Main extends Component {
       this.setState(prevState => ({ page: prevState.page + 1 }));
     }
   }, 1000);
+
+  resetPage = () => {
+    this.setState({ page: 1 });
+  };
 }
 
 export default Main;

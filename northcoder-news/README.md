@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## A news forum to keep up-to-date with all the goings-on at NorthCoders: https://northcoder-news.netlify.com
 
-Made using React and hosted on Netlify, this front-end uses JSX, HTML and CSS. It also makes use of packages such as @reach/router, lodash, moment, react-alert and axios, with the latter being used for requesting news data back from a SQL database via the site's backend API using Knex: www.isabel-nc-knews.heroku.com/api.
+Made using React and hosted on Netlify, this front-end uses JSX, HTML and CSS. It also makes use of packages such as @reach/router, lodash, moment, react-alert and axios, with the latter being used for requesting news data back from a SQL database via the site's backend API using Knex: https://northcoder-news-api.herokuapp.com/api/.
 
 ##User actions##
 
