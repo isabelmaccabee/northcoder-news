@@ -9,7 +9,6 @@ class QueryButtons extends Component {
 
   render() {
     return (
-      // <div className="queryButtonsDiv">
       <form className="queryButtonsDiv">
         <label htmlFor="sortByQuery">Sort by:</label>
         <select
@@ -49,7 +48,6 @@ class QueryButtons extends Component {
         </div>
         <button onClick={this.handleClick}>Give me articles!</button>
       </form>
-      // </div>
     );
   }
 

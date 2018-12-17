@@ -5,6 +5,7 @@ import "../css/Article.css";
 import DeleteButton from "./DeleteButton";
 import { navigate } from "@reach/router";
 import { withAlert } from "react-alert";
+import * as utils from "../utils/index";
 
 class Article extends Component {
   state = {
@@ -18,7 +19,6 @@ class Article extends Component {
         votes,
         author,
         created_at,
-        // topic,
         body,
         comment_count,
         article_id
@@ -33,7 +33,7 @@ class Article extends Component {
         <h3>
           <span>Author: {author}</span>
           <br />
-          <span>Creation date: {created_at}</span>
+          <span>Creation date: {utils.formatDate(created_at)}</span>
           <br />
           <span>Comment count: {comment_count}</span>
         </h3>
@@ -57,7 +57,6 @@ class Article extends Component {
         this.setState({ currentArticle: article, isLoading: false });
       })
       .catch(err => {
-        console.dir(err.response.data.message);
         navigate("/404", {
           state: { errMsg: err.response.data.message },
           replace: true

@@ -14,7 +14,7 @@ import AlertTemplate from "react-alert-template-basic";
 class App extends Component {
   state = {
     topics: [],
-    user: null,
+    user: JSON.parse(localStorage.getItem("loginCredentials")),
     isLoading: true
   };
 
@@ -25,7 +25,7 @@ class App extends Component {
         <Auth user={user} setUser={this.setUser}>
           <div className="App">
             <Header />
-            <UserIndicator user={user} />
+            <UserIndicator user={user} logOutUser={this.logOutUser} />
             {isLoading ? (
               <div className="nav">
                 <p>...</p>
@@ -51,7 +51,13 @@ class App extends Component {
   };
 
   setUser = loginCredentials => {
+    localStorage.setItem("loginCredentials", JSON.stringify(loginCredentials));
     this.setState({ user: loginCredentials });
+  };
+
+  logOutUser = () => {
+    localStorage.clear();
+    this.setState({ user: null });
   };
 }
 

@@ -24,7 +24,6 @@ class CommentAdder extends Component {
   }
 
   handleChange = event => {
-    event.preventDefault();
     const { id, value } = event.target;
     this.setState({ [id]: value });
   };

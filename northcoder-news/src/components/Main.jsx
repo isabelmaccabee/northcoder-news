@@ -20,7 +20,7 @@ class Main extends Component {
     return (
       <Router className="main" onScroll={e => this.handleScroll(e.target)}>
         <Home path="/" page={page} />
-        <Topic path="/:topic" page={page} />
+        <Topic path="/:topic" page={page} topics={topics} />
         <Article path="/:topic/:article_id" user={user} />
         <ArticleAdder path="/submit-article" user={user} topics={topics} />
         <PageNotFound path="/404" />

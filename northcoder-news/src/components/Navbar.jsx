@@ -26,7 +26,7 @@ const Navbar = ({ topics }) => {
 };
 
 Navbar.propTypes = {
-  topics: PropTypes.array
+  topics: PropTypes.array.isRequired
 };
 
 export default Navbar;

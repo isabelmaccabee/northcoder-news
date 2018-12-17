@@ -1,3 +1,5 @@
+import moment from "../../node_modules/moment/moment";
+
 export const capitaliseFirst = word => {
   return `${word[0].toUpperCase()}${word.slice(1)}`;
 };
@@ -10,4 +12,11 @@ export const changeQmarkToAmp = url => {
     return char;
   });
   return onlyOneQ.join("");
+};
+
+export const formatDate = (longDate, location) => {
+  const sliced = longDate.slice(0, 10);
+  if (["articles", "comments"].some(loc => location === loc))
+    return moment(sliced, "YYYY-MM-DD").fromNow();
+  return sliced;
 };

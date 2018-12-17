@@ -1,44 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Northcoder News
 
-In the project directory, you can run:
+## A news forum to keep up-to-date with all the goings-on at NorthCoders: https://northcoder-news.netlify.com
 
-### `npm start`
+Made using React and hosted on Netlify, this front-end uses JSX, HTML and CSS. It also makes use of packages such as @reach/router, lodash, moment, react-alert and axios, with the latter being used for requesting news data back from a SQL database via the site's backend API using Knex: www.isabel-nc-knews.heroku.com/api.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##User actions##
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+As a user of this site, you are able to:
 
-### `npm test`
+- Read articles (with sort-by queries used)
+- Vote on each article
+- Submit your own article
+- Delete your own articles
+- Read the comments for each article
+- Vote on each comment
+- Submit your own comment for each article
+- Delete yor own comments
+- Submit a new topic for articles to be grouped by
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##How to use this Front-End##
 
-### `npm run build`
+Clone this repo from github (URL) and navigate (cd) into the folder /northcoder-news. Using CLI, execute the 'npm install' command to install all the relevant dependencies, then execute 'npm start' to create a localhost version of the site.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The defualt log-in value is 'jessjelly' for your ease of accessing the site. Other valid usernames (checked against the users in the Knex database) that you could use include: 'tickle122', 'cooljmessy', 'weegembump' and 'grumpy19'.

@@ -24,11 +24,13 @@ class Articles extends Component {
           page={this.props.page}
         />
         <ul>
-          {articles.map((article, index) => (
-            <li key={`${article.article_id}${index}`} className="article">
-              <ArticleCard articleInfo={article} />
-            </li>
-          ))}
+          {articles.map((article, index) => {
+            return (
+              <li key={`${article.article_id}${index}`} className="article">
+                <ArticleCard articleInfo={article} />
+              </li>
+            );
+          })}
         </ul>
         {endOfPage && <p>end of page</p>}
       </div>

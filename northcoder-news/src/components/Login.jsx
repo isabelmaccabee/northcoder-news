@@ -3,7 +3,7 @@ import * as api from "../api";
 
 class Login extends Component {
   state = {
-    userInput: "",
+    userInput: "jessjelly",
     userNotExist: false
   };
 
@@ -20,6 +20,7 @@ class Login extends Component {
             onChange={this.handleChange}
             value={userInput}
             autoFocus={true}
+            spellCheck={false}
           />
           <button>Login</button>
         </form>
@@ -31,7 +32,6 @@ class Login extends Component {
   }
 
   handleChange = event => {
-    event.preventDefault();
     const { id, value } = event.target;
     this.setState({ [id]: value });
   };

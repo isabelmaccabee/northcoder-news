@@ -38,14 +38,12 @@ class TopicAdder extends Component {
   }
 
   handleChange = event => {
-    event.preventDefault();
     const { id, value } = event.target;
     this.setState({ [id]: value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    // const { titleInput, bodyInput, topicInput } = this.state;
     const { user } = this.props;
     api
       .postTopic(this.state.slugInput, this.state.descInput)
