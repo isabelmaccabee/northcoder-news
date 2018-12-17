@@ -40,19 +40,18 @@ class Articles extends Component {
     );
   }
   componentDidMount() {
-    this.fetchArticles();
+    if (this.props.page !== 1) this.props.resetPage();
+    else this.fetchArticles();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.topic !== this.props.topic) {
-      this.setState({ articles: [] }, () => {
-        this.fetchArticles();
-      });
-    }
     if (prevProps.page !== this.props.page) {
       this.fetchArticles();
     }
-    if (prevState.searchQueries !== this.state.searchQueries) {
+    if (
+      prevState.searchQueries !== this.state.searchQueries ||
+      prevProps.topic !== this.props.topic
+    ) {
       if (this.props.page === 1) {
         this.setState({ articles: [] }, () => {
           this.fetchArticles();
