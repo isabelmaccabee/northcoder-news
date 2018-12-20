@@ -4,9 +4,6 @@ import Header from "./Header";
 import "../css/LoginPage.css";
 
 const Auth = ({ user, children, setUser }) => {
-  localStorage.getItem.loginCredentials &&
-    console.log(localStorage.getItem.loginCredentials);
-
   if (user) return children;
   else
     return (

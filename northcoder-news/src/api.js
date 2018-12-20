@@ -15,7 +15,6 @@ export const getArticles = async (topic, sort_by, sort_ascending, page = 1) => {
   URL = sort_by ? `${URL}?sort_by=${sort_by}` : URL;
   URL = sort_ascending ? `${URL}?sort_ascending=${sort_ascending}` : URL;
   const withoutQs = utils.changeQmarkToAmp(URL);
-  console.log(withoutQs);
   const { data } = await axios.get(withoutQs);
   return data.articles;
 };

@@ -17,7 +17,6 @@ class Main extends Component {
   render() {
     const { user, topics } = this.props;
     const { page } = this.state;
-    console.log(user);
     return (
       <Router className="main" onScroll={e => this.handleScroll(e.target)}>
         <Home path="/" page={page} resetPage={this.resetPage} />
@@ -40,7 +39,6 @@ class Main extends Component {
     const bottom =
       target.scrollHeight - target.scrollTop === target.clientHeight;
     if (bottom) {
-      console.log("at the bottom");
       this.setState(prevState => ({ page: prevState.page + 1 }));
     }
   }, 1000);
