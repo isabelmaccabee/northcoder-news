@@ -14,7 +14,7 @@ import AlertTemplate from "react-alert-template-basic";
 class App extends Component {
   state = {
     topics: [],
-    user: JSON.parse(localStorage.getItem("loginCredentials")),
+    user: null,
     isLoading: true
   };
 
@@ -44,10 +44,16 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchTopics();
+    this.getUser();
   }
 
   fetchTopics = () => {
     api.getTopics().then(topics => this.setState({ topics, isLoading: false }));
+  };
+
+  getUser = () => {
+    const storedUser = localStorage.getItem("loginCredentials");
+    if (storedUser) this.setState({ user: JSON.parse(storedUser) });
   };
 
   setUser = loginCredentials => {

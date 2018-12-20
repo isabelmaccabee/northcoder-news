@@ -14,6 +14,9 @@ const ArticleCard = ({ articleInfo }) => {
           <Link to={`/${topic}/${article_id}`}>{title}</Link>
         </h3>
         <p>
+          <strong>Article id: {article_id}</strong>
+        </p>
+        <p>
           By {author}, {utils.formatDate(created_at, "articles")}
         </p>
         <p>Topic: {topic}</p>
