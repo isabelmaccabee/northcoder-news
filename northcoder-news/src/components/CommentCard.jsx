@@ -14,16 +14,22 @@ const CommentCard = ({ comment, article_id, user, optDeleteComment }) => {
       }
     >
       <p>
-        By {author}, {utils.formatDate(created_at, "comments")}
+        By {author},{" "}
+        {comment_id === "newComment"
+          ? "Just posted"
+          : utils.formatDate(created_at, "comments")}
       </p>
       <p>Comment: {body}</p>
-      <p>Created at: {created_at.slice(0, 10)}</p>
+      <p>
+        Created at:{" "}
+        {comment_id === "newComment" ? "Just now" : created_at.slice(0, 10)}
+      </p>
       <VoteSection
         votes={votes}
         comment_id={comment_id}
         article_id={article_id}
       />
-      {user.username === author && (
+      {user.username === author && comment_id !== "newComment" && (
         <DeleteButton
           comment_id={comment_id}
           optDeleteFunc={optDeleteComment}

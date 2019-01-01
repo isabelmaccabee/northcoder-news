@@ -53,7 +53,7 @@ class CommentsSidebar extends Component {
       author: username,
       created_at: `${Date.now()}`,
       votes: 0,
-      comment_id: `${Date.now()}`,
+      comment_id: `newComment`,
       failedToPost: false
     };
     this.setState(prevState => ({
