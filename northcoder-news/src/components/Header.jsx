@@ -1,9 +1,9 @@
 import React from "react";
 import "../css/Header.css";
 
-const Header = () => {
+const Header = ({ auth }) => {
   return (
-    <div className="header">
+    <div className={auth ? "header authHeader" : "header"}>
       <h1>
         <span>North</span>
         <br />

@@ -8,7 +8,7 @@ const Auth = ({ user, children, setUser }) => {
   else
     return (
       <div className="loginPage">
-        <Header />
+        <Header auth={true}/>
         <Login setUser={setUser} />
       </div>
     );

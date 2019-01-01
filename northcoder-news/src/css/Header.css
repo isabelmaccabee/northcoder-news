@@ -6,6 +6,7 @@
   /* text-align: left; */
   padding: 0px 0px;
   font-size: 0.7em;
+  /* background: rgb(209, 80, 91); */
 }
 
 .header h1 {
@@ -13,4 +14,9 @@
   letter-spacing: 12px;
   line-height: 18px;
   text-align: left;
+}
+
+.authHeader {
+  background: rgb(209, 80, 91);
+  color: white;
 }
