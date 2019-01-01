@@ -1,32 +1,47 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Link } from "@reach/router";
 import "../css/Navbar.css";
 import * as utils from "../utils/index";
 
-const Navbar = ({ topics }) => {
-  return (
-    <div className="nav">
-      <Link to="/">Home</Link>
-      {topics.map(({ slug }) => {
-        return (
-          <Link key={slug} to={`${slug}`}>
-            {utils.capitaliseFirst(slug)}
-          </Link>
-        );
-      })}
-      <Link to="/submit-topic" className="submitNav">
-        Submit Topic
-      </Link>
-      <Link to="/submit-article" className="submitNav">
-        Submit Article
-      </Link>
-    </div>
-  );
-};
+class Navbar extends Component {
+  state = {
+    showTopics: false
+  };
+  render() {
+    const { topics } = this.props;
+    const { showTopics } = this.state;
+    return (
+      <div className="nav">
+        <Link to="/">Home</Link>
+        <button className="showMoreButton" onClick={this.toggleShowTopics}>
+          Show topics
+        </button>
+        {topics.map(({ slug }) => {
+          return (
+            <Link
+              key={slug}
+              to={`${slug}`}
+              className={showTopics ? "visibleTopic" : "notVisibleTopic"}
+            >
+              {utils.capitaliseFirst(slug)}
+            </Link>
+          );
+        })}
+        <Link to="/submit-topic" className="submitNav">
+          Submit Topic
+        </Link>
+        <Link to="/submit-article" className="submitNav">
+          Submit Article
+        </Link>
+      </div>
+    );
+  }
 
-Navbar.propTypes = {
-  topics: PropTypes.array.isRequired
-};
+  toggleShowTopics = e => {
+    this.setState(prevState => {
+      return { showTopics: !prevState.showTopics };
+    });
+  };
+}
 
 export default Navbar;

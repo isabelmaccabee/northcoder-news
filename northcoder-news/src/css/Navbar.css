@@ -21,9 +21,34 @@
 }
 
 .submitNav {
+  justify-self: auto;
   text-align: center;
   border: 1px solid white;
   border-radius: 15px;
   padding: 3px 5px;
-  max-width: 10px;
+  max-width: 60px;
+}
+
+.showMoreButton {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .notVisibleTopic {
+    display: none;
+    transition: 5s;
+  }
+  .visibleTopic {
+    display: inline;
+    transition: 5s;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .showMoreButton {
+    display: block;
+  }
 }
