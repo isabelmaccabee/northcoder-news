@@ -14,14 +14,14 @@ class TopicAdder extends Component {
       <div>
         <h2>Submit a topic</h2>
         <form onSubmit={this.handleSubmit} className="articleAdder">
-          <label htmlFor="slugInput">Title</label>
+          <label htmlFor="slugInput">New topic</label>
           <input
             type="text"
             id="slugInput"
             onChange={this.handleChange}
             required
           />
-          <label htmlFor="descInput">Write your article here</label>
+          <label htmlFor="descInput">Description</label>
           <input
             type="text"
             id="descInput"

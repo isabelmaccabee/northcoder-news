@@ -24,15 +24,19 @@ class App extends Component {
       <AlertProvider template={AlertTemplate}>
         <Auth user={user} setUser={this.setUser}>
           <div className="App">
-            <Header />
-            <UserIndicator user={user} logOutUser={this.logOutUser} />
-            {isLoading ? (
-              <div className="nav">
-                <p>...</p>
+            <div className="menubar">
+              <Header />
+              <div className="userAndMenu">
+                <UserIndicator user={user} logOutUser={this.logOutUser} />
+                {isLoading ? (
+                  <div className="nav">
+                    <p>...</p>
+                  </div>
+                ) : (
+                  <Navbar topics={topics} />
+                )}
               </div>
-            ) : (
-              <Navbar topics={topics} />
-            )}
+            </div>
             <Main user={user} topics={topics} />
             <Sidebar user={user} />
             <Footer />

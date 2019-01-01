@@ -6,25 +6,45 @@ body {
 .App {
   text-align: center;
   display: grid;
-  grid-template: 1fr 1fr 15fr 1fr / 1fr 1fr 1fr;
+  grid-template: 1fr 15fr 1fr / 1fr 1fr 1fr;
   grid-template-areas:
-    "header userInd userInd"
-    "header nav nav"
+    "menubar menubar menubar"
+    /* "menubar menubar menubar" */
     "main main sidebar"
     "footer footer footer";
   height: 100vh;
 }
 
-.App .header {
-  grid-area: header;
+/* .App .header {
+  grid-area: menubar;
+} */
+
+.userAndMenu {
+  background: rgb(209, 80, 91);
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  justify-items: right;
+  text-align: right;
+  margin: auto;
 }
 
-.userInd {
+/* .userInd {
   grid-area: userInd;
-}
+} */
 
-.nav {
+/* .nav {
   grid-area: nav;
+} */
+
+.menubar {
+  grid-area: menubar;
+  display: flex;
+  flex-direction: row;
+  background: rgb(209, 80, 91);
+  border-bottom: rgb(209, 80, 91);
+  color: white;
+  width: 100%;
 }
 
 .main {
@@ -71,8 +91,40 @@ a:hover {
   background: lightcoral;
 }
 
-.headerBar {
+/* .headerBar {
   background: rgb(209, 80, 91);
   border-bottom: rgb(209, 80, 91);
   color: white;
+} */
+
+@media (max-width: 600px) {
+  .App {
+    grid-template: 1fr 15fr 10fr 1fr / 1fr;
+    grid-template-areas:
+      "menubar"
+      "main"
+      "sidebar"
+      "footer";
+    height: 100vh;
+    text-align: center;
+  }
+  .menubar {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-content: center; */
+  }
+
+  .userAndMenu {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-content: center;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
