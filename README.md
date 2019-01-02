@@ -20,6 +20,6 @@ As a user of this site, you are able to:
 
 ## How to use this Front-End
 
-Clone this repo from github (git clone [repo url here]) and navigate (cd) into the folder /northcoder-news. Using CLI, execute the 'npm install' command to install all the relevant dependencies, then execute 'npm start' to create a localhost version of the site.
+Clone this repo from github and navigate (cd) into the folder /northcoder-news. Using CLI, execute the 'npm install' command to install all the relevant dependencies, then execute 'npm start' to create a localhost version of the site.
 
 The defualt log-in value is 'jessjelly' for your ease of accessing the site. Other valid usernames (checked against the users in the Knex database) that you could use include: 'tickle122', 'cooljmessy', 'weegembump' and 'grumpy19'.
