@@ -7,6 +7,8 @@
 
 .nav {
   margin: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav a {
@@ -26,11 +28,21 @@
   border: 1px solid white;
   border-radius: 15px;
   padding: 3px 5px;
-  max-width: 60px;
+  width: 130px;
 }
 
+.submitDiv {
+  display: flex;
+  flex-direction: row;
+}
 .showMoreButton {
   display: none;
+}
+
+@media (max-width: 1010px) {
+  .nav {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {
@@ -44,11 +56,19 @@
   }
 
   .nav {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    margin: auto;
   }
   .showMoreButton {
     display: block;
+  }
+  .submitDiv {
+    flex-direction: column;
+  }
+
+  .homeAndTopics {
+    display: flex;
+    flex-direction: column;
   }
 }

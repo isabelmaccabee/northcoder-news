@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "../css/ArticleCard.css";
 import { Link } from "@reach/router";
 import VoteSection from "./VoteSection";
@@ -26,10 +25,6 @@ const ArticleCard = ({ articleInfo }) => {
       </div>
     </div>
   );
-};
-
-ArticleCard.propTypes = {
-  articleInfo: PropTypes.object.isRequired
 };
 
 export default ArticleCard;

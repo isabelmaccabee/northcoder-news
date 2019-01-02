@@ -2,7 +2,6 @@ import React from "react";
 import VoteSection from "./VoteSection";
 import "../css/CommentCard.css";
 import DeleteButton from "./DeleteButton";
-import * as utils from "../utils";
 
 const CommentCard = ({ comment, article_id, user, optDeleteComment }) => {
   const { comment_id, author, body, votes, created_at, failedToPost } = comment;
@@ -13,12 +12,7 @@ const CommentCard = ({ comment, article_id, user, optDeleteComment }) => {
         failedToPost ? "failedPost commentCard" : "successfulPost commentCard"
       }
     >
-      <p>
-        By {author},{" "}
-        {comment_id === "newComment"
-          ? "Just posted"
-          : utils.formatDate(created_at, "comments")}
-      </p>
+      <p>By {author}</p>
       <p>Comment: {body}</p>
       <p>
         Created at:{" "}

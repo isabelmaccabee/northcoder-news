@@ -16,7 +16,6 @@ class Articles extends Component {
   render() {
     const { articles, isLoading, endOfPage } = this.state;
     if (isLoading) return <p>...</p>;
-    console.log(articles);
     return (
       <div className="articlesDiv">
         <QueryButtons

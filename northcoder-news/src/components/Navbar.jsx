@@ -12,27 +12,31 @@ class Navbar extends Component {
     const { showTopics } = this.state;
     return (
       <div className="nav">
-        <Link to="/">Home</Link>
-        <button className="showMoreButton" onClick={this.toggleShowTopics}>
-          Show topics
-        </button>
-        {topics.map(({ slug }) => {
-          return (
-            <Link
-              key={slug}
-              to={`${slug}`}
-              className={showTopics ? "visibleTopic" : "notVisibleTopic"}
-            >
-              {utils.capitaliseFirst(slug)}
-            </Link>
-          );
-        })}
-        <Link to="/submit-topic" className="submitNav">
-          Submit Topic
-        </Link>
-        <Link to="/submit-article" className="submitNav">
-          Submit Article
-        </Link>
+        <div className="homeAndTopics">
+          <Link to="/">Home</Link>
+          <button className="showMoreButton" onClick={this.toggleShowTopics}>
+            Show topics
+          </button>
+          {topics.map(({ slug }) => {
+            return (
+              <Link
+                key={slug}
+                to={`${slug}`}
+                className={showTopics ? "visibleTopic" : "notVisibleTopic"}
+              >
+                {utils.capitaliseFirst(slug)}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="submitDiv">
+          <Link to="/submit-topic" className="submitNav">
+            Submit Topic
+          </Link>
+          <Link to="/submit-article" className="submitNav">
+            Submit Article
+          </Link>
+        </div>
       </div>
     );
   }

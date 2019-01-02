@@ -15,7 +15,6 @@ export const changeQmarkToAmp = url => {
 };
 
 export const formatDate = (longDate, location) => {
-  if (longDate === "Just posted") return longDate;
   const sliced = longDate.slice(0, 10);
   if (["articles", "comments"].some(loc => location === loc))
     return moment(sliced, "YYYY-MM-DD").fromNow();

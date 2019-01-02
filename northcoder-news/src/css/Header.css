@@ -1,12 +1,6 @@
 .header {
-  /* display: flex; */
-  /* flex-direction: column; */
-  text-align: center;
-  justify-content: center;
-  /* text-align: left; */
   padding: 0px 0px;
   font-size: 0.7em;
-  /* background: rgb(209, 80, 91); */
 }
 
 .header h1 {
@@ -19,4 +13,11 @@
 .authHeader {
   background: rgb(209, 80, 91);
   color: white;
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    text-align: left;
+    width: 130px;
+  }
 }
