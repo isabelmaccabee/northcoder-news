@@ -1,12 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Northcoder News
 
 ## A news forum to keep up-to-date with all the goings-on at NorthCoders: https://northcoder-news.netlify.com
 
 Made using React and hosted on Netlify, this front-end uses JSX, HTML and CSS. It also makes use of packages such as @reach/router, lodash, moment, react-alert and axios, with the latter being used for requesting news data back from a SQL database via the site's backend API using Knex: https://northcoder-news-api.herokuapp.com/api/.
 
-##User actions##
+##User actions
 
 As a user of this site, you are able to:
 
@@ -20,7 +18,7 @@ As a user of this site, you are able to:
 - Delete yor own comments
 - Submit a new topic for articles to be grouped by
 
-##How to use this Front-End##
+##How to use this Front-End
 
 Clone this repo from github (URL) and navigate (cd) into the folder /northcoder-news. Using CLI, execute the 'npm install' command to install all the relevant dependencies, then execute 'npm start' to create a localhost version of the site.
 
